@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <!-- Favicon Link -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <!-- External Css File -->
+    <link rel="stylesheet" href="Style_of_Form.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1>Student Registration Form</h1>
+        <form action="">
+            <div class="row">
+                <div class="col">
+                    <label for="">First Name</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="FN" placeholder="Enter your First Name" class="inp" onblur="return FNCheck()"
+                        onkeyup="return InvaildFN()">
+                    <span id="error"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Last Name</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="LN" placeholder="Enter your Last Name" class="inp" onblur="return LNCheck()"
+                        onkeyup="return InvaildLN()">
+                    <span id="error1"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Email</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="" placeholder="It should be contain @..." class="inp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Mobile</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="Num" placeholder="Only 10 digits are allowed" class="inp"
+                        onblur="return PhoneNumCheck()" maxlength="10">
+                    <span id="error2"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Gender</label>
+                </div>
+                <div class="col">
+                    <input type="radio" name="gen" class="inp">
+                    <label for="">Male</label>
+                    <input type="radio" name="gen" class="inp">
+                    <label for="">Female</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Date Of Birth</label>
+                </div>
+                <div class="col">
+                    <input type="date" id="" class="inp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Address</label>
+                </div>
+                <div class="col">
+                    <textarea name="" id="" cols="65" rows="10" class="inp"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">city</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="" class="inp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Area PIN</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="" class="inp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">State</label>
+                </div>
+                <div class="col">
+                    <input type="text" id="" class="inp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Qualification</label>
+                </div>
+                <div class="col">
+                    <select name="" id="" class="inp">
+                        <option value="">Select Qualification </option>
+                        <option value="">SSC pass</option>
+                        <option value="">HSC pass</option>
+                        <option value="">Graduation</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">specialization</label>
+                </div>
+                <div class="col mycol">
+                    <input type="checkbox" name="" id="" class="inp">
+                    <label for="">Computer Science</label>
+                    <input type="checkbox" name="" id="" class="inp">
+                    <label for="">Information Technology</label>
+                    <input type="checkbox" name="" id="" class="inp">
+                    <label for="">Computer Architecture</label>
+                    <input type="checkbox" name="" id="" class="inp">
+                    <label for="">Tele Communication</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Password</label>
+                </div>
+                <div class="col">
+                    <input type="password" id="" class="inp">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col">
+                    <button onclick="return validationForm()">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        //Blank inputs validation
+        function validationForm() {
+            let inp = document.querySelectorAll(".inp");
+            for (let i = 0; i < inp.length; i++) {
+                if (inp[i].value == "" || inp[i].value == "null") {
+                    alert("Please Fill The rquired details")
+                    return false;
+                }
+            }
+        }
+
+
+        //FirstName character's length  check
+        function FNCheck() {
+            let f = document.getElementById("FN");
+
+            if (f.value <= 6) {
+                document.getElementById("error").innerHTML = " It's accept mini 3 & max 6 alphabets"
+            } else {
+                document.getElementById("error").innerHTML = "";
+            }
+            return false
+        }
+
+
+        //Check The Numbers in first name and show error
+        function InvaildFN() {
+            let f = document.getElementById("FN");
+            let ptn = /^[a-zA-Z]*$/;
+            if (!ptn.test(f.value)) {
+                document.getElementById("error").innerHTML = "Numbers are not allowed"
+            }
+            return false
+        }
+
+
+        //Check The Numbers in Last name and show error
+        function InvaildLN() {
+            let l = document.getElementById("LN");
+            let ptn = /^[a-zA-Z]*$/;
+            if (!ptn.test(l.value)) {
+                document.getElementById("error1").innerHTML = "Numbers are not allowed"
+            }
+            return false
+        }
+
+        //LastName character's length  check
+        function LNCheck() {
+            let l = document.getElementById("LN");
+            if (l.value <= 6) {
+                document.getElementById("error1").innerHTML = " It's accept mini 3 & max 6 alphabets"
+            } else {
+                document.getElementById("error1").innerHTML = ""
+            }
+            return false
+        }
+
+
+        //Phone number validation
+        function PhoneNumCheck() {
+            let mnum = document.getElementById("Num");
+            let ptn = /^[0-9]*$/;
+            if (!ptn.test(mnum.value)) {
+                document.getElementById("error2").innerHTML = "Invaild Mobile Number";
+            } else if (mnum.value.length < 10) {
+                document.getElementById("error2").innerHTML = "Mobile Number must be at least 10 characters";
+            }
+            else {
+                document.getElementById("error2").innerHTML = "";
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>

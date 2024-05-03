@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  color: red;
+  text-decoration: underline;
+  padding-bottom: 10px;
+}
+
+.main {
+  padding-left: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 10px 0px;
+  background-color: rgb(174, 244, 220);
+}
+
+.mycol{
+
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+  width: 500px;
+  height: 30px;
+  padding-left: 10px;
+}
+
+button {
+  padding: 10px 50px;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+}
+#error,#error1,#error2{
+  color: red;
+}
